@@ -24,8 +24,21 @@ const Toasters = () => (
                 return (<h1>Loading...</h1>);
             }
             
-            console.log(data);
-            return('Hello')
+            
+            return(
+                <div>
+                    {
+                        data.toasters.edges.map((toaster, key) => {
+                            return(
+                                <div key={key}>
+                                    <h2>{toaster.node.title}</h2>
+                                    <Link to={`/toaster/${toaster.node.slug}`}>Learn more</Link>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            )
         }
     }
 
