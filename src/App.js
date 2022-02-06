@@ -2,7 +2,7 @@ import ApolloClient from 'apollo-boost';
 import {ApolloProvider} from 'react-apollo';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Toasters from './Toasters/Toasters';
-/* import Toaster from './Toasters/Toaster'; */
+import Toaster from './Toasters/Toaster';
 
 const client = new ApolloClient ({
   uri: 'http://localhost/headlesswp-1/graphql',
@@ -20,8 +20,8 @@ function App() {
           <div className='content'>
             <Routes>
               <Route exact path="/" element={< Toasters />}></Route>
-              {/* <Route exact path="/toasters" component="Toasters" />
-              <Route exact path="/toasters/:slug" component="Toaster" /> */}
+              <Route path="/toasters" element={< Toasters />}></Route>
+              <Route path="/toaster/:slug" element={< Toaster />}></Route>
             </Routes>
           </div>
         </div>
